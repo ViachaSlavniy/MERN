@@ -12,8 +12,7 @@ router.post(
     '/register',
     [
         check('email', 'Некорректный Емейл').isEmail(),
-        check('password', 'Минимальная длинна пароля 6 символов')
-            .isLength({min: 6})
+        check('password', 'Минимальная длинна пароля 6 символов').isLength({min: 6})
     ],
     async (req, res) => {
     try {
@@ -65,7 +64,7 @@ router.post('/login',
                 })
             }
 
-            const {email, password} = req
+            const {email, password} = req.body
             const user = await User.findOne({email})
 
             if (!user) {
