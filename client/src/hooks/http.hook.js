@@ -13,7 +13,9 @@ export const useHttp = () => {
                 headers['Content-Type'] = 'application/json'
             }
             const response = await fetch(url, {method, body, headers})
+            console.log(response)
             const data = await response.json()
+            console.log(data)
 
             if (!response.ok) {
                 throw new Error(data.message || 'Что-то пошло не так')
